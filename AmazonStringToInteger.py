@@ -24,5 +24,6 @@ class Solution:
                 return max(-2 ** 31, num)  # To return in range if negative 
             return min(2 ** 31 -1 , num)  # To return in range if positive
             
-
+OR
+https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2962/discuss/798380/Fast-and-simpler-DFA-approach-(Python-3)
         
