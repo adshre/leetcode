@@ -31,7 +31,7 @@ def binarySearchRecursive(a, x, low, high):
     
     
     
-input = [12, 12, 13, 14, 18, 50, 88, 45, 90, 98]
+input = [12, 12, 13, 14, 18, 50, 88, 45, 90, 98]  # Always a sorted array
 number = 98
 
 print("***** binary search *****")
