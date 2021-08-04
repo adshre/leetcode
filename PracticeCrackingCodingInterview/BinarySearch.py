@@ -6,7 +6,7 @@ def binarySearch(a, x):
     high = len(a) - 1
 
     while low <= high :
-        mid = low + high // 2 # // for int division as indices cannot be float
+        mid = (low + high) // 2 # // for int division as indices cannot be float and brackets necessary or will do high//2 first
         if a[mid] < x :
             low = mid + 1
         elif a[mid] > x :
@@ -19,7 +19,7 @@ def binarySearch(a, x):
 def binarySearchRecursive(a, x, low, high):
     if low > high : return -1.    # base condition check for error
     
-    mid = low + high // 2
+    mid = (low + high) // 2
     
     if a[mid] < x :
         return binarySearchRecursive(a, x ,mid + 1, high)
