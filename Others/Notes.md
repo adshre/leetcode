@@ -1,0 +1,12 @@
+- Variables act as "storage locations" for data in a program.
+- virtually execute programs : https://cscircles.cemc.uwaterloo.ca/visualize
+- Errors: 
+  - print(trouble)<br /> NameError: name 'trouble' is not defined
+  - 4 = x <br />  SyntaxError: can't assign to literal(While A = B and B = A are the same in mathematics, they are different in programming.)
+- Swap variables. : https://www.geeksforgeeks.org/swap-two-numbers-without-using-temporary-variable/
+- Identifier can not start with digits. Eg WRONG : 1_Num is wrong variable name, for = 4 is wrong as for is reserved word
+- Change 1st and last character of string : strinp[-1:]+strinp[1:-1] + str[:1]
+- The program with the run-time error created some output, but the one with the syntax error did not. This is because Python runs in two steps:
+    - Python checks if your program has correct syntax, in order to determine its structure and parts.
+    - If no syntax errors were encountered in step 1, then the program is executed.
+    - So, a program with a syntax error will execute no steps at all, but a program with a run-time error will execute the steps that happened before the error occured.
