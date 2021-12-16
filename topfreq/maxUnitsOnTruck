@@ -1,0 +1,52 @@
+import heapq
+class Solution:
+    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+        SORT + GREEDY =>
+        
+        boxTypes.sort(key=lambda x: -x[1])  # reverse sort
+        maxUnits = 0
+        for box in boxTypes:
+            if truckSize < 0:   
+                break
+            maxUnits += min(box[0], truckSize) * box[1]  # choose min remaining ,i.e truck can have 1 slot but box can be 5 so we will choose 1 so min
+            
+            truckSize -= box[0] #decrement truck size 
+        return maxUnits
+        
+        
+        Priority Queue =>
+        
+        maxUnits = 0
+        q = [(-x[1], x[0]) for x in boxTypes]
+        heapq.heapify(q)
+        
+        while q:
+            if truckSize == 0: break
+            box = heapq.heappop(q)  # remove max unit from tree
+            boxSize = min(truckSize, box[1])
+            maxUnits += boxSize * -box[0]
+            truckSize -= boxSize
+        return maxUnits
+        
+        
+
+"""
+COMPLEXITY:
+TIME:
+    Sort: O(NlogN)
+    Iterate over all boxes: O(N)
+    Total: O(NlogN) + O(N) = O(NLogN)
+    
+Space: O(1)
+
+For Priority Queue :
+TIME: 
+    Insert into queue = O(N)
+    Iterate till truckSize !=0 = O(N) ....(1)
+    removing elements from queue = O(logN)......(2)
+    1 and 2 gives: O(NlogN)
+    Total = O(NlogN) + O(N) = O(NLogN)
+    
+Space: O(N), queue of size N
+
+"""
