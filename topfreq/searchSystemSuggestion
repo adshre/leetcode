@@ -1,0 +1,30 @@
+class Solution:
+    def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
+        products.sort()
+        print(products)
+        prefix = ""
+        result = []
+        
+        for eachCharacter in searchWord:
+            prefix += eachCharacter
+            indexPosition = bisect.bisect_left(products, prefix)
+            result.append([w for w in products[indexPosition: indexPosition+3] if w.startswith(prefix)])
+        return result
+           
+        
+"""
+Complexity:
+TIME:
+    N = length of products. M is the length of the search word
+    
+    Sorting: O(NlogN)
+    BinarySearch: O(MlogN)
+    Total: O(NlogN + MlogN)
+
+SPACE:
+Sort: O(N)
+for output: O(M)
+
+Remaining: Using Trie + dfs
+
+"""
