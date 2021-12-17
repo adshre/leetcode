@@ -1,0 +1,34 @@
+class Solution:
+    def minFlipsMonoIncr(self, s: str) -> int:
+        countOccurenceOfOne = 0
+        flipCount = 0
+        
+        for number in s:
+            
+            if number == '1':
+                countOccurenceOfOne += 1
+            else:
+                flipCount = min(flipCount+1, countOccurenceOfOne)
+        return flipCount
+    
+    
+"""
+    
+Observe and analyze two possible cases on binary string pattern
+
+Let S start on empty string "", and add either '0' or '1' on the tail to make it longer.
+
+Case #1
+S + '1' : No need to flip, because '1' keeps monotone increasing always.
+
+Case #2
+S + '0' : Need flip operation to maintain monotone increasing.
+
+Option 1 for case #2:
+Flip current 0 to 1, keep leading digits, then substring is monotone increasing.
+S + '0' becomes S + '1'
+
+Option 2 for case #2:
+Flip leading 1s to 0s, keep current 0, then substring is monotone increasing.
+S + '0' becomes S' + '0' where S' is modified from S and all leading 1s is flipped to 0s
+"""
