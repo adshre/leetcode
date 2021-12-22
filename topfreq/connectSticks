@@ -1,0 +1,23 @@
+class Solution:
+    def connectSticks(self, sticks: List[int]) -> int:
+        heapq.heapify(sticks)
+        res = 0
+        while len(sticks) > 1:
+            x, y = heapq.heappop(sticks), heapq.heappop(sticks)
+            res += x + y
+            heapq.heappush(sticks, x+y)
+        return res
+    
+"""
+TIME COMPLEXITY
+
+O(N logN), where N is the length of the input array. Let's break it down:
+ - Adding N elements to priority queue  - O(NlogN)
+ 
+ -We remove two of the smallest elements and then add one element to the priority queue until we are left with one element. Since each such operation will reduce one element from the priority queue, we will perform N-1 such operations.
+ Add and remove take O(logN) in priority queue so complexity is O(NlogN)
+ 
+ 
+ SPACE COMPLEXITY:
+ O(N) to store N elements in priority queue.
+"""
