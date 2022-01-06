@@ -1,0 +1,18 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        mapping = {")":"(", "}":"{", "]":"["}
+        stack = []
+        
+        for each in s:
+            if each in mapping:
+                top_element = stack.pop() if stack else '#'
+                if mapping[each] != top_element:
+                    return False
+            else:
+                stack.append(each)
+        return not stack
+    
+    """
+    Time Complexity : O(N) , push pop : O(1)
+    Space : O(N) since we can push all N closing brackets to stack
+    """
