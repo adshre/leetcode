@@ -10,3 +10,7 @@ class Solution:
             ans[i] = ans[i] * R
             R *= nums[i]
         return ans
+"""
+TIME: O(N)
+SPACE: O(1)
+"""
