@@ -1,0 +1,33 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        diameter = 0
+        
+        def longestPath(node):
+            if not node:
+                return 0
+            nonlocal diameter
+            
+            leftPath = longestPath(node.left)
+            rightPath = longestPath(node.right)
+            
+            diameter = max(diameter, leftPath + rightPath)
+            
+             # return the longest one between left_path and right_path;
+            # remember to add 1 for the path connecting the node and its parent
+           
+            return max(leftPath, rightPath) + 1  
+     
+        longestPath(root)
+        return diameter
+    
+    
+    """
+    TIME : O(N),  we only enter and exit from each node once
+    SPACE: O(N),  height of the tree and if balanced tree: o(logN)
+    """
