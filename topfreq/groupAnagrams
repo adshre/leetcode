@@ -1,0 +1,18 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        ans = collections.defaultdict(list)  # initializing answer as key and list value
+        for s in strs :
+            ans[tuple([sorted(s)])].append(s) # sorted elements group together as tuple key and string as value
+        return ans.values() # return only ans
+       
+"""
+TimeComplexity:
+N = length of str
+K = max length of string in str
+sort : KlogK and outer loop : N
+O(NKlogk)
+
+Space: O(NK)
+
+
+"""
