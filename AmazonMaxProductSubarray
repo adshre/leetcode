@@ -1,0 +1,15 @@
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        if len(nums) == 0:
+            return 0
+        
+        result = min_subarray = max_subarray = nums[0]
+        
+        for i in range(1, len(nums)):
+            curr = nums[i]
+            temp = max(curr, curr * max_subarray, curr * min_subarray)
+            min_subarray = min(curr, curr * max_subarray, curr * min_subarray)
+            max_subarray = temp
+            result = max(max_subarray, result)
+            
+        return result
